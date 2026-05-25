@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Card Simples</title>
+    <style>
+        /* Centraliza o card na tela */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #02265c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container do Card */
+        .card {
+            position: relative;
+            width: 350px;
+            height: 450px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden; /* Esconde o verso que está abaixo */
+        }
+
+        /* Frente do Card (Imagem) */
+        .card-front {
+            width: 100%;
+            height: 100%;
+        }
+
+        .card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Verso do Card (Conteúdo que sobe) */
+        .card-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            color: #333333;
+            padding: 30px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            
+            /* Posição inicial: totalmente abaixo do card */
+            transform: translateY(100%);
+            /* Transição simples e direta */
+            transition: transform 0.4s ease-in-out; 
+        }
+
+        /* Efeito de subir ao passar o mouse */
+        .card:hover .card-back {
+            transform: translateY(0);
+        }
+
+        /* Estilos básicos dos textos e botão */
+        .card-back h2 {
+            margin: 0 0 15px 0;
+            font-size: 24px;
+        }
+
+        .card-back p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .btn-read-more {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-read-more:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="card-front">
+            <img src="office.jpg" alt="Office Image">
+        </div>
+        
+        <div class="card-back">
+            <h2>Post Title</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+            <button class="btn-read-more">Read More</button>
+        </div>
+    </div>
+
+</body>
+</html>
